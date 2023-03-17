@@ -109,8 +109,11 @@ async function main() {
             port: serverPort,
             secure: secure === "true",
             tls: ignoreCert == "true" ? {
+                ciphers: 'SSLv3',
                 rejectUnauthorized: false
-            } : undefined,
+            } : {
+                ciphers: 'SSLv3'
+            }
         })
 
         const info = await transport.sendMail({
