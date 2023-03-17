@@ -47,7 +47,7 @@ async function main() {
         let password = core.getInput("password")
 
         if (!secure) {
-            secure = serverPort === "465" ? "true" : "false"
+            secure = serverPort === "465" || serverPort === "587" ? "true" : "false"
         }
 
         const connectionUrl = core.getInput("connection_url")
