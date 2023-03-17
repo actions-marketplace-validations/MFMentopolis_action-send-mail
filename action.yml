@@ -1,4 +1,4 @@
-name: Send email
+name: Send email with service
 description: Send an email to multiple recipients
 author: dawidd6 / MFMentopolis
 branding:
