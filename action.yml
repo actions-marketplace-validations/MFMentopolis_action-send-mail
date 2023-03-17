@@ -12,6 +12,8 @@ inputs:
   server_port:
     description: SMTP server port
     default: "25"
+  mail_service:
+    description: mail service, e.g. Outlook365
   secure:
     description: Whether this connection use TLS (default is true if server_port is 465)
   username:
