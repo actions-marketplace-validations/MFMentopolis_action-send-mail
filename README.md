@@ -34,6 +34,8 @@ Some features:
     username: ${{secrets.MAIL_USERNAME}}
     # Optional (recommended) mail server password:
     password: ${{secrets.MAIL_PASSWORD}}
+    # Optional mail service, e.g. Outlook365
+    mail_service: Outlook365
     # Required mail subject:
     subject: Github Actions job result
     # Required recipients' addresses:
