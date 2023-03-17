@@ -41,6 +41,7 @@ async function main() {
     try {
         let serverAddress = core.getInput("server_address")
         let serverPort = core.getInput("server_port")
+        let mailService = core.getInput("mail_service")
         let secure = core.getInput("secure")
         let username = core.getInput("username")
         let password = core.getInput("password")
@@ -102,6 +103,7 @@ async function main() {
 
         const transport = nodemailer.createTransport({
             host: serverAddress,
+            service: mailService,
             auth: username && password ? {
                 user: username,
                 pass: password
@@ -109,11 +111,8 @@ async function main() {
             port: serverPort,
             secure: secure === "true",
             tls: ignoreCert == "true" ? {
-                ciphers: 'SSLv3',
                 rejectUnauthorized: false
-            } : {
-                ciphers: 'SSLv3'
-            }
+            } : undefined
         })
 
         const info = await transport.sendMail({
